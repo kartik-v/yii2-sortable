@@ -5,7 +5,7 @@ A Yii 2.0 widget that allows you to create sortable lists and grids and manipula
 It is based on the lightweight [html5sortable](http://farhadi.ir/projects/html5sortable) jQuery plugin, which uses native HTML5 API for drag and drop. 
 It is a leaner alternative for the JUI Sortable plugin and offers very similar functionality. The **yii2-sortable widget** offers these features:
 
-- Less than 1KB (minified and gzipped).
+- Less than 1KB of javascript used (minified and gzipped).
 - Built using native HTML5 drag and drop API.
 - Supports both list and grid style layouts.
 - Similar API and behaviour to jquery-ui sortable plugin.
