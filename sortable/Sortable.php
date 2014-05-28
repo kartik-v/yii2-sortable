@@ -69,7 +69,7 @@ class Sortable extends \kartik\widgets\Widget
     public function init()
     {
         parent::init();
-        Html::addCssClass($this->options, $this->type);
+        Html::addCssClass($this->options, 'sortable ' . $this->type);
         if ($this->connected) {
             Html::addCssClass($this->options, 'connected');
             $this->pluginOptions['connectWith'] = '.connected';
@@ -77,16 +77,31 @@ class Sortable extends \kartik\widgets\Widget
         if ($this->showHandle) {
             $this->pluginOptions['handle'] = '.handle';
         }
+        if ($this->hasDisabledItem() && empty($this->pluginOptions['items'])) {
+            $this->pluginOptions['items'] = ':not(.disabled)';
+        }
         $this->registerAssets();
         echo Html::beginTag('ul', $this->options);
     }
 
-    protected function run()
+    public function run()
     {
         echo $this->renderItems();
         echo Html::endTag('ul');
     }
 
+    /**
+     * Check if there is any disabled item
+     * @return bool
+     */
+    protected function hasDisabledItem() {
+        foreach ($this->items as $item) {
+            if (ArrayHelper::getValue($item, 'disabled', false)) {
+                return true;
+            }
+        }
+        return false;
+    }
     protected function renderItems()
     {
         $items = '';
@@ -96,14 +111,10 @@ class Sortable extends \kartik\widgets\Widget
             $options = ArrayHelper::getValue($item, 'options', []);
             $options = ArrayHelper::merge($this->itemOptions, $options);
             if (ArrayHelper::getValue($item, 'disabled', false)) {
-                $disabled = true;
                 Html::addCssClass($options, 'disabled');
             }
-            $content = ArrayHelper::getValue($item, 'content', '');
-            $items .= $handle . Html::tag('li', $content, $options) . PHP_EOL;
-        }
-        if ($disabled && empty($this->pluginOptions['items'])) {
-            $this->pluginOptions['items'] = ':not(.disabled)';
+            $content = $handle . ArrayHelper::getValue($item, 'content', '');
+            $items .= Html::tag('li', $content, $options) . PHP_EOL;
         }
         return $items;
     }
@@ -112,12 +123,12 @@ class Sortable extends \kartik\widgets\Widget
     {
         $view = $this->getView();
         SortableAsset::register($view);
-        $id = '$("#' + $this->options['id'] + '")';
         $this->registerPlugin('sortable');
+        $id = '$("#' . $this->options['id'] . '")';
         if ($this->disabled) {
-            $js = "{$id}.sortable('disable')";
+            $js = "{$id}.sortable('disable');";
         } else {
-            $js = "{$id}.sortable('enable')";
+            $js = "{$id}.sortable('enable');";
         }
         $view->registerJs($js);
     }
