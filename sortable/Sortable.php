@@ -66,6 +66,9 @@ class Sortable extends \kartik\widgets\Widget
      */
     public $items = [];
 
+    /**
+     * Initializes the widget
+     */
     public function init()
     {
         parent::init();
@@ -84,6 +87,11 @@ class Sortable extends \kartik\widgets\Widget
         echo Html::beginTag('ul', $this->options);
     }
 
+    /**
+     * Runs the widget
+     *
+     * @return string|void
+     */
     public function run()
     {
         echo $this->renderItems();
@@ -92,9 +100,11 @@ class Sortable extends \kartik\widgets\Widget
 
     /**
      * Check if there is any disabled item
+     *
      * @return bool
      */
-    protected function hasDisabledItem() {
+    protected function hasDisabledItem()
+    {
         foreach ($this->items as $item) {
             if (ArrayHelper::getValue($item, 'disabled', false)) {
                 return true;
@@ -102,6 +112,12 @@ class Sortable extends \kartik\widgets\Widget
         }
         return false;
     }
+
+    /**
+     * Render the list items for the sortable widget
+     *
+     * @return string
+     */
     protected function renderItems()
     {
         $items = '';
@@ -119,6 +135,9 @@ class Sortable extends \kartik\widgets\Widget
         return $items;
     }
 
+    /**
+     * Register client assets
+     */
     public function registerAssets()
     {
         $view = $this->getView();
