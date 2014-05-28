@@ -1,0 +1,38 @@
+.sortable {
+    -moz-user-select: none;
+    width: 310px;
+}
+.sortable li {
+    background: none repeat scroll 0 0 #F6F6F6;
+    border: 1px solid #CCCCCC;
+    color: #333;
+    height: 22px;
+    list-style: none outside none;
+    margin: 5px;
+    padding: 5px;
+}
+.sortable.grid {
+    overflow: hidden;
+}
+.sortable.grid li {
+    float: left;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    width: 80px;
+}
+.handle {
+    cursor: move;
+}
+.sortable.connected {
+    float: left;
+    min-height: 100px;
+    width: 200px;
+}
+.sortable li.disabled {
+    opacity: 0.5;
+}
+.sortable li.sortable-placeholder {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 1px dashed #CCCCCC;
+}
