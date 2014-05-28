@@ -29,7 +29,7 @@ class Sortable extends \kartik\widgets\Widget
      * Should be one of [[Sortable::TYPE]] constants.
      * Defaults to Sortable::TYPE_LIST
      */
-    public $type;
+    public $type = self::TYPE_LIST;
 
     /**
      * @var boolean, whether this widget is connected to another Sortable widget
@@ -37,7 +37,7 @@ class Sortable extends \kartik\widgets\Widget
     public $connected = false;
 
     /**
-     * @var boolean, whether this widget is disabled by default
+     * @var boolean, whether this widget is disabled
      */
     public $disabled = false;
 
@@ -58,11 +58,11 @@ class Sortable extends \kartik\widgets\Widget
     public $itemOptions = [];
 
     /**
-     * @var array the items that should be included within the sortable
-     * list/grid. You can set the following properties:
-     * - content: string, the list item content to be included (this is not HTML encoded)
-     * - options: array, the HTML attributes for the list item.
+     * @var array the sortable items configuration for rendering elements within the sortable
+     * list / grid. You can set the following properties:
+     * - content: string, the list item content (this is not HTML encoded)
      * - disabled: bool, whether the list item is disabled
+     * - options: array, the HTML attributes for the list item.
      */
     public $items = [];
 
