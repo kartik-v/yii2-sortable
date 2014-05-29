@@ -80,6 +80,9 @@ class Sortable extends \kartik\widgets\Widget
         if ($this->showHandle) {
             $this->pluginOptions['handle'] = '.handle';
         }
+        else {
+            Html::addCssClass($this->options, 'cursor-move');
+        }
         if ($this->hasDisabledItem() && empty($this->pluginOptions['items'])) {
             $this->pluginOptions['items'] = ':not(.disabled)';
         }
