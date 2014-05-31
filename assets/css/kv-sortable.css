@@ -11,6 +11,9 @@
  */
 .sortable {
     -moz-user-select: none;
+    padding:0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
 }
 
 .sortable li {
@@ -53,7 +56,6 @@
 }
 
 .sortable.connected {
-    float: left;
     min-height: 100px;
     min-width: 200px;
 }
