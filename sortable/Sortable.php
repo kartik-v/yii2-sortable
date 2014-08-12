@@ -146,7 +146,7 @@ class Sortable extends \kartik\widgets\Widget
         $view = $this->getView();
         SortableAsset::register($view);
         $this->registerPlugin('sortable');
-        $id = '$("#' . $this->options['id'] . '")';
+        $id = 'jQuery("#' . $this->options['id'] . '")';
         if ($this->disabled) {
             $js = "{$id}.sortable('disable');";
         } else {
