@@ -19,7 +19,7 @@ class SortableAsset extends \kartik\widgets\AssetBundle
 
     public function init()
     {
-        $this->setSourcePath(__DIR__ . '/../assets');
+        $this->setSourcePath(__DIR__ . '/assets');
         $this->setupAssets('css', ['css/kv-sortable']);
         $this->setupAssets('js', ['js/jquery.sortable']);
         parent::init();
