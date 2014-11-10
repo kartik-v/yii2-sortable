@@ -3,7 +3,7 @@
 /**
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014
  * @package yii2-sortable
- * @version 1.0.0
+ * @version 1.1.0
  */
 
 namespace kartik\sortable;
@@ -19,7 +19,7 @@ use yii\helpers\ArrayHelper;
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @since 1.0
  */
-class Sortable extends \kartik\widgets\Widget
+class Sortable extends \kartik\base\Widget
 {
     const TYPE_LIST = 'list';
     const TYPE_GRID = 'grid';
