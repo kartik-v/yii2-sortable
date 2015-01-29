@@ -3,7 +3,7 @@
 /**
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014
  * @package yii2-sortable
- * @version 1.1.0
+ * @version 1.2.0
  */
 
 namespace kartik\sortable;
@@ -21,7 +21,7 @@ class SortableAsset extends \kartik\base\AssetBundle
     {
         $this->setSourcePath(__DIR__ . '/assets');
         $this->setupAssets('css', ['css/kv-sortable']);
-        $this->setupAssets('js', ['js/jquery.sortable']);
+        $this->setupAssets('js', ['js/html.sortable']);
         parent::init();
     }
 
