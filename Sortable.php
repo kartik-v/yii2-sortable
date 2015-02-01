@@ -32,7 +32,12 @@ class Sortable extends \kartik\base\Widget
     public $type = self::TYPE_LIST;
 
     /**
-     * @var boolean, whether this widget is connected to another Sortable widget
+     * @var boolean|string, whether this widget is connected to another Sortable widget. Defaults to `false`.
+     * - if set to `false` or null/empty this widget will not be connected to any other sortable widget.
+     * - if set to `true`, this widget will be connected to all other sortable widgets on the page with
+     *   `connected` property set to `true`.
+     * - if set to a string - this widget will be connected with other sortable widgets matching
+     *   the same connected string value.
      */
     public $connected = false;
 
@@ -73,14 +78,14 @@ class Sortable extends \kartik\base\Widget
     {
         parent::init();
         Html::addCssClass($this->options, 'sortable ' . $this->type);
-        if ($this->connected) {
-            Html::addCssClass($this->options, 'connected');
-            $this->pluginOptions['connectWith'] = '.connected';
+        if (($this->connected && is_string($this->connected)) || $this->connected === true) {
+            $css = ($this->connected === true) ? 'kv-connected' : $this->connected;
+            Html::addCssClass($this->options, $css);
+            $this->pluginOptions['connectWith'] = ".{$css}";
         }
         if ($this->showHandle) {
             $this->pluginOptions['handle'] = '.handle';
-        }
-        else {
+        } else {
             Html::addCssClass($this->options, 'cursor-move');
         }
         if ($this->hasDisabledItem() && empty($this->pluginOptions['items'])) {
