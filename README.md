@@ -1,6 +1,12 @@
 yii2-sortable
 =================
 
+[![Latest Stable Version](https://poser.pugx.org/kartik-v/yii2-sortable/v/stable.svg)](https://packagist.org/packages/kartik-v/yii2-sortable)
+[![License](https://poser.pugx.org/kartik-v/yii2-sortable/license.svg)](https://packagist.org/packages/kartik-v/yii2-sortable)
+[![Total Downloads](https://poser.pugx.org/kartik-v/yii2-sortable/downloads.svg)](https://packagist.org/packages/kartik-v/yii2-sortable)
+[![Monthly Downloads](https://poser.pugx.org/kartik-v/yii2-sortable/d/monthly.png)](https://packagist.org/packages/kartik-v/yii2-sortable)
+[![Daily Downloads](https://poser.pugx.org/kartik-v/yii2-sortable/d/daily.png)](https://packagist.org/packages/kartik-v/yii2-sortable)
+
 A Yii 2.0 widget that allows you to create sortable lists and grids and manipulate them using simple drag and drop. 
 It is based on the lightweight [html5sortable](https://github.com/voidberg/html5sortable) jQuery plugin, which uses native HTML5 API for drag and drop. 
 It is a leaner alternative for the JUI Sortable plugin and offers very similar functionality. The **yii2-sortable widget** offers these features:
