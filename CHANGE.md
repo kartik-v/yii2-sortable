@@ -8,6 +8,7 @@ version 1.2.0
     - if set to `false` or null/empty this widget will not be connected to any other sortable widget.
     - if set to `true`, this widget will be connected to all other sortable widgets on the page with `connected` property set to `true`.
     - if set to a string - this widget will be connected with other sortable widgets matching the same connected string value.
+- (enh #9): Set composer version dependencies.
 
 version 1.1.0
 =============
