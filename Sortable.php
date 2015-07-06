@@ -129,7 +129,6 @@ class Sortable extends \kartik\base\Widget
     protected function renderItems()
     {
         $items = '';
-        $disabled = false;
         $handle = ($this->showHandle) ? Html::tag('span', $this->handleLabel, ['class' => 'handle']) : '';
         foreach ($this->items as $item) {
             $options = ArrayHelper::getValue($item, 'options', []);
