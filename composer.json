@@ -17,7 +17,12 @@
     },
     "autoload": {
         "psr-4": {
-            "kartik\\sortable\\": ""
+            "kartik\\sortable\\": "src"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.2.x-dev"
         }
     }
 }

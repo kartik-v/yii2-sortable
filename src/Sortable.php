@@ -1,9 +1,9 @@
 <?php
 
 /**
- * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2015
+ * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2018
  * @package yii2-sortable
- * @version 1.2.0
+ * @version 1.2.1
  */
 
 namespace kartik\sortable;
@@ -149,12 +149,12 @@ class Sortable extends \kartik\base\Widget
     {
         $view = $this->getView();
         SortableAsset::register($view);
-        $this->registerPlugin('sortable');
+        $this->registerPlugin('kvHtml5Sortable');
         $id = 'jQuery("#' . $this->options['id'] . '")';
         if ($this->disabled) {
-            $js = "{$id}.sortable('disable');";
+            $js = "{$id}.kvHtml5Sortable('disable');";
         } else {
-            $js = "{$id}.sortable('enable');";
+            $js = "{$id}.kvHtml5Sortable('enable');";
         }
         $view->registerJs($js);
     }
