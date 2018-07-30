@@ -72,6 +72,11 @@ class Sortable extends \kartik\base\Widget
     public $items = [];
 
     /**
+     * @var bool Whether the JUI or HTML5 sortable is being used
+     */
+    public $useJui = false;
+
+    /**
      * Initializes the widget
      */
     public function init()
@@ -148,7 +153,21 @@ class Sortable extends \kartik\base\Widget
     public function registerAssets()
     {
         $view = $this->getView();
-        SortableAsset::register($view);
+        $needJui = true;
+        // Check if JUI is loaded
+        if(array_key_exists('yii\jui\JuiAsset',$view->assetBundles)) {
+            $this->useJui = true;
+            $needJui = false;
+        }
+        // Skip if JUI is loaded or passed as option
+        if($this->useJui === true) {
+            if($needJui) {
+                \yii\jui\JuiAsset::register($view);
+            }
+        }
+        else {
+            SortableAsset::register($view);
+        }
         $this->registerPlugin('sortable');
         $id = 'jQuery("#' . $this->options['id'] . '")';
         if ($this->disabled) {
