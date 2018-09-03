@@ -8,6 +8,8 @@
 
 namespace kartik\sortable;
 
+use kartik\base\Widget;
+use yii\base\InvalidConfigException;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
@@ -19,9 +21,16 @@ use yii\helpers\ArrayHelper;
  * @author Kartik Visweswaran <kartikv2@gmail.com>
  * @since 1.0
  */
-class Sortable extends \kartik\base\Widget
+class Sortable extends Widget
 {
+    /**
+     * @var string list type sortable
+     */
     const TYPE_LIST = 'list';
+
+    /**
+     * @var string grid type sortable
+     */
     const TYPE_GRID = 'grid';
 
     /**
@@ -47,14 +56,16 @@ class Sortable extends \kartik\base\Widget
     public $disabled = false;
 
     /**
-     * @var boolean, whether to show handle for each sortable item
+     * @var boolean, whether to show handle for each sortable item.
      */
     public $showHandle = false;
 
     /**
-     * @var string, the handle label, this is not HTML encoded
+     * @var string, the handle label, this is not HTML encoded.  If not set this will default to:
+     * - '<i class="fas fa-arrows-alt"></i> ' if [[bsVersion]] is `4.x`
+     * - '<i class="glyphicon glyphicon-move"></i> ' if [[bsVersion]] is `3.x`
      */
-    public $handleLabel = '<i class="glyphicon glyphicon-move"></i> ';
+    public $handleLabel;
 
     /**
      * @var array the HTML attributes to be applied to all items.
@@ -73,15 +84,20 @@ class Sortable extends \kartik\base\Widget
 
     /**
      * Initializes the widget
+     * @throws InvalidConfigException
      */
     public function init()
     {
         parent::init();
+        if (!isset($this->handleLabel)) {
+            $icon = $this->isBs4() ? '<i class="fas fa-arrows-alt"></i>' : '<i class="glyphicon glyphicon-move"></i> ';
+            $this->handleLabel = $icon . ' ';
+        }
         Html::addCssClass($this->options, 'sortable ' . $this->type);
         if (($this->connected && is_string($this->connected)) || $this->connected === true) {
             $css = ($this->connected === true) ? 'kv-connected' : $this->connected;
             Html::addCssClass($this->options, $css);
-            $this->pluginOptions['connectWith'] = ".{$css}";
+            $this->pluginOptions['acceptFrom'] = ".{$css}";
         }
         if ($this->showHandle) {
             $this->pluginOptions['handle'] = '.handle';

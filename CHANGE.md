@@ -3,8 +3,10 @@ Change Log: `yii2-sortable`
 
 ## Version 1.2.1
 
-**Date:** 30-Jul-2018
+**Date:** 03-Sep-2018
 
+- (enh #17): Update to use newer plugin methods.
+- Updates to support bootstrap v4.x.
 - (enh #15, #16): Create new jquery plugin `kvHtml5Sortable` based on `html5sortable`.
 - Update to use latest release library of [html5sortable](https://github.com/lukasoppermann/html5sortable).
 - Move all relevant code to new `src` directory.
