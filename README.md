@@ -1,7 +1,8 @@
 yii2-sortable
 =============
 
-[![Latest Stable Version](https://poser.pugx.org/kartik-v/yii2-sortable/v/stable)](https://packagist.org/packages/kartik-v/yii2-sortable)
+[![Stable Version](https://poser.pugx.org/kartik-v/yii2-widget-sortable/v/stable)](https://packagist.org/packages/kartik-v/yii2-widget-sortable)
+[![Unstable Version](https://poser.pugx.org/kartik-v/yii2-widget-sortable/v/unstable)](https://packagist.org/packages/kartik-v/yii2-widget-sortable)
 [![License](https://poser.pugx.org/kartik-v/yii2-sortable/license)](https://packagist.org/packages/kartik-v/yii2-sortable)
 [![Total Downloads](https://poser.pugx.org/kartik-v/yii2-sortable/downloads)](https://packagist.org/packages/kartik-v/yii2-sortable)
 [![Monthly Downloads](https://poser.pugx.org/kartik-v/yii2-sortable/d/monthly)](https://packagist.org/packages/kartik-v/yii2-sortable)

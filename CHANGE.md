@@ -1,6 +1,12 @@
 Change Log: `yii2-sortable`
 ===========================
 
+## Version 1.2.2
+
+**Date:** 09-Oct-2018
+
+- Bump up composer dependencies.
+
 ## Version 1.2.1
 
 **Date:** 03-Sep-2018

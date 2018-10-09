@@ -3,7 +3,7 @@
 /**
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014 - 2018
  * @package yii2-sortable
- * @version 1.2.1
+ * @version 1.2.2
  */
 
 namespace kartik\sortable;
